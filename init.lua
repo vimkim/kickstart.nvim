@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 --[[
 
 =====================================================================
@@ -98,6 +101,54 @@ vim.g.have_nerd_font = false
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+
+-- my vim.opt edit begin
+vim.opt.colorcolumn = '79'
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+
+-- Set highlight on search
+vim.opt.hlsearch = false
+
+-- Make line numbers default
+vim.wo.number = true
+
+-- Enable mouse mode
+vim.opt.mouse = 'a'
+
+-- Enable break indent
+vim.opt.breakindent = true
+
+-- Save undo history
+vim.opt.undofile = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Keep signcolumn on by default
+vim.wo.signcolumn = 'yes'
+
+-- Decrease update time
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.opt.completeopt = 'menuone,noselect'
+
+-- NOTE: You should make sure your terminal supports this
+vim.opt.termguicolors = true
+
+-- copilot
+-- vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+-- vim.api.nvim_set_keymap('i', '<C-J>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
+-- my vim.opt edit end
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -156,6 +207,37 @@ vim.opt.scrolloff = 10
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+
+-- my keymap start
+
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend('force', options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+map('', 'n', 'j', {})
+map('', 'e', 'k', {})
+map('', 'i', 'l', {})
+map('', 'j', 'e', {})
+map('', 'k', 'n', {})
+map('', 'l', 'i', {})
+
+map('', 'N', 'J', {})
+map('', 'E', 'K', {})
+map('', 'I', 'L', {})
+map('', 'J', 'E', {})
+map('', 'K', 'N', {})
+map('', 'L', 'I', {})
+
+map('i', ',s', '<ESC>', {})
+map('', ',s', '<ESC>:w<CR>', {})
+map('', ',q', '<ESC>:bd<cr>', {})
+map('', '<c-q>', '<ESC>:q<cr>', {})
+
+-- my keymap end
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -225,8 +307,11 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+
+  'sindrets/diffview.nvim',
+
+  -- NOTE: First, some plugins that don't require any configuration
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -239,6 +324,8 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+
+  'github/copilot.vim',
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -295,6 +382,26 @@ require('lazy').setup({
       }, { mode = 'v' })
     end,
   },
+  --
+  -- {
+  --   -- Theme inspired by Xcode
+  --   'arzg/vim-colors-xcode',
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'xcodelight'
+  --   end,
+  -- },
+  --
+  -- {
+  --   'uloco/bluloco.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   dependencies = { 'rktjmp/lush.nvim' },
+  --   config = function()
+  --     -- your optional config goes here, see below.
+  --     vim.cmd.colorscheme 'bluloco-light'
+  --   end,
+  -- },
 
   -- NOTE: Plugins can specify dependencies.
   --
