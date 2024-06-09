@@ -1350,3 +1350,15 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- my additional settings begin
+
+-- Set conceallevel to 0 for help files
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'help',
+  callback = function()
+    vim.wo.conceallevel = 0
+  end,
+})
+
+-- my additional settings end
