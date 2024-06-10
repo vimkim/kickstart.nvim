@@ -315,6 +315,8 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- my plugins begin
+  'lambdalisue/vim-suda',
+
   {
     'akinsho/toggleterm.nvim',
     version = '*',
