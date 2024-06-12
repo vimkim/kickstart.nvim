@@ -1355,6 +1355,9 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Map <leader>gf to open the file under the cursor, creating it if necessary
+vim.api.nvim_set_keymap('n', '<leader>gf', ':e <cfile><CR>', { noremap = true, silent = true })
+
 -- my additional settings end
 
 -- my keymap start
