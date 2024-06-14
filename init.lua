@@ -207,43 +207,6 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- my keymap start
-
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
--- colemak keybindings
-
-map('', 'n', 'gj', {})
-map('', 'N', 'J', {})
-map('', 'e', 'gk', {})
-map('', 'E', 'K', {})
-map('', 'i', 'l', {})
-map('', 'I', 'L', {})
-
-map('', 'l', 'i', {})
-map('', 'L', 'I', {})
-map('', 'k', 'n', {})
-map('', 'K', 'N', {})
-map('', 'j', 'e', {})
-map('', 'J', 'E', {})
-
-map('n', 'gn', 'n', {})
-map('n', 'ge', 'e', {})
-
-map('i', ',s', '<ESC>', {})
-map('n', ',s', '<ESC>:w<CR>', {})
-map('n', 's,', '<ESC>:w<CR>', {})
-map('', ',q', '<ESC>:bd<cr>', {})
-map('', '<c-q>', '<ESC>:q<cr>', {})
-
--- my keymap end
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -1364,3 +1327,40 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- my additional settings end
+
+-- my keymap start
+
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend('force', options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+-- colemak keybindings
+
+map('', 'n', 'gj', {})
+map('', 'N', 'J', {})
+map('', 'e', 'gk', {})
+map('', 'E', 'K', {})
+map('', 'i', 'l', {})
+map('', 'I', 'L', {})
+
+map('', 'l', 'i', {})
+map('', 'L', 'I', {})
+map('', 'k', 'n', {})
+map('', 'K', 'N', {})
+map('', 'j', 'e', {})
+map('', 'J', 'E', {})
+
+map('n', 'gn', 'n', {})
+map('n', 'ge', 'e', {})
+
+map('i', ',s', '<ESC>', {})
+map('n', ',s', '<ESC>:w<CR>', {})
+map('n', 's,', '<ESC>:w<CR>', {})
+map('', ',q', '<ESC>:bd<cr>', {})
+map('', '<c-q>', '<ESC>:q<cr>', {})
+
+-- my keymap end
