@@ -1383,8 +1383,6 @@ map('i', ',s', '<ESC>', {})
 map('n', ',s', '<ESC>:w<CR>', {})
 map('n', 's,', '<ESC>:w<CR>', {})
 map('', ',q', '<ESC>:bd<cr>', {})
-map('', '<c-q>', '<ESC>:q<cr>', {})
+map('', '<c-q>', '<ESC>:qa<cr>', {})
 
 -- my keymap end
-
-
