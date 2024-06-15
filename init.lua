@@ -278,6 +278,14 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- my plugins begin
+  {
+    'VonHeikemen/fine-cmdline.nvim',
+    requires = { { 'MunifTanjim/nui.nvim' } },
+    config = function()
+      vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
+    end,
+  },
+
   'lambdalisue/vim-suda',
 
   {
@@ -1364,3 +1372,4 @@ map('', ',q', '<ESC>:bd<cr>', {})
 map('', '<c-q>', '<ESC>:q<cr>', {})
 
 -- my keymap end
+
