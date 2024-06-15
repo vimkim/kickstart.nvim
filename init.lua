@@ -286,6 +286,12 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4',
+    lazy = false,
+  },
+
   'lambdalisue/vim-suda',
 
   {
@@ -1372,4 +1378,5 @@ map('', ',q', '<ESC>:bd<cr>', {})
 map('', '<c-q>', '<ESC>:q<cr>', {})
 
 -- my keymap end
+
 
