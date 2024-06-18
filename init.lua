@@ -314,6 +314,13 @@ require('lazy').setup({
 
   'tpope/vim-fugitive',
 
+  {
+    'fei6409/log-highlight.nvim',
+    config = function()
+      require('log-highlight').setup {}
+    end,
+  },
+
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -1367,6 +1374,7 @@ map('', 'N', 'J', {})
 map('', 'e', 'gk', {})
 map('', 'E', 'K', {})
 map('', 'i', 'l', {})
+map('x', 'i', 'l', {})
 map('', 'I', 'L', {})
 
 map('', 'l', 'i', {})
@@ -1376,13 +1384,15 @@ map('', 'K', 'N', {})
 map('', 'j', 'e', {})
 map('', 'J', 'E', {})
 
-map('n', 'gn', 'n', {})
-map('n', 'ge', 'e', {})
+map('', 'gn', 'n', {})
+map('', 'ge', 'e', {})
 
 map('i', ',s', '<ESC>', {})
-map('n', ',s', '<ESC>:w<CR>', {})
-map('n', 's,', '<ESC>:w<CR>', {})
+map('', ',s', '<ESC>:w<CR>', {})
+map('', 's,', '<ESC>:w<CR>', {})
 map('', ',q', '<ESC>:bd<cr>', {})
 map('', '<c-q>', '<ESC>:qa<cr>', {})
+
+map('', '<leader>mo', '<ESC>:set nu! mouse=<CR>', {})
 
 -- my keymap end
