@@ -1388,7 +1388,7 @@ require('lazy').setup({
     'xiyaowong/transparent.nvim',
     priority = 1000,
     config = function()
-      -- vim.cmd 'TransparentEnable'
+      vim.cmd 'TransparentEnable'
     end,
   },
 
@@ -1544,6 +1544,16 @@ require('lazy').setup({
       { "<c-i>", "<cmd>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
     },
+  },
+
+  {
+    "cappyzawa/trim.nvim",
+    config = function()
+      require("trim").setup {
+        trim_on_write = false,
+        highlight = true
+      }
+    end,
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
